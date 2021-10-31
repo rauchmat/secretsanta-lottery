@@ -13,7 +13,7 @@ namespace SecretSanta.Domain
                 throw new ArgumentException ("Must have at least to elements.", nameof(santas));
                 
             var random = new Random();
-            var santas2 = santas.OrderBy (santa => random.Next()).ToList();
+            var santas2 = santas.ToList();
 
             var valueTuples = new List<(Santa, Santa)>();
             foreach (var santa in santas)

@@ -70,7 +70,7 @@ Viel Spaß beim Beschenken!"
                                    };
 
                 _logger.LogDebug (mailMessage.To[0] + ": " + mailMessage.TextBody);
-                // await smtpClient.SendAsync (mailMessage, cancellationToken);
+                await smtpClient.SendAsync (mailMessage, cancellationToken);
             }
 
             await smtpClient.DisconnectAsync (true, cancellationToken);

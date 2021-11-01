@@ -22,8 +22,14 @@ namespace SecretSanta.Domain
                 int i;
                 do
                 {
+                    
                     i = random.Next() % santas2.Count;
                     santa2 = santas2[i];
+
+                    //if only one santa is remaining and would be assigned to himself, start whole assignment over again
+                    if (santas2.Count == 1 && santa == santa2) 
+                        return AssignSantas (santas);
+                    
                 } while (santa == santa2);
                 
                 santas2.RemoveAt (i);

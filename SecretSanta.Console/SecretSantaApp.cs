@@ -58,8 +58,8 @@ namespace SecretSanta.Console
             {
                 var mailMessage = new MimeMessage();
                 mailMessage.From.Add (new MailboxAddress ("Bro Fixe Admin", _smtpSettings.Sender));
-                mailMessage.To.Add (new MailboxAddress (assignment.Item2.Name, assignment.Item2.Email));
-                mailMessage.Subject = "Dein Bro Fixe Bengerl 2021";
+                mailMessage.To.Add (new MailboxAddress (assignment.Item1.Name, assignment.Item1.Email));
+                mailMessage.Subject = "Bro Fixe Engerl Bengerl 2021";
                 mailMessage.Body = new TextPart ("plain")
                                    {
                                            Text = @$"Hallo {assignment.Item1.Name},
@@ -69,7 +69,7 @@ dein Bengerl für dieses Jahr ist {assignment.Item2.Name}.
 Viel Spaß beim Beschenken!"
                                    };
 
-                _logger.LogDebug (mailMessage.TextBody);
+                _logger.LogDebug (mailMessage.To[0] + ": " + mailMessage.TextBody);
                 // await smtpClient.SendAsync (mailMessage, cancellationToken);
             }
 
